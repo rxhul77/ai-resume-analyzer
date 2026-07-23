@@ -82,7 +82,6 @@
     }
 
     .analysis-result {
-        white-space: pre-wrap;
         font-family: Arial, sans-serif;
         line-height: 1.6;
         background-color: #f4f4f4;
@@ -275,7 +274,7 @@
         <h2>📊 AI Resume Analysis</h2>
 
         <div class="analysis-result">
-            {{ analysis_result }}
+            {{ analysis_result | safe }}
     </div>
 
 </div>

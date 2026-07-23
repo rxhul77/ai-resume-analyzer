@@ -1,6 +1,6 @@
 import os
 from datetime import datetime
-
+import markdown
 from dotenv import load_dotenv
 from google import genai
 from pathlib import Path
@@ -39,7 +39,12 @@ Analyze the resume and provide:
             contents=prompt
         )
 
-        return response.text
+        analysis = markdown.markdown(
+            response.text,
+            extensions=["extra", "nl2br"]
+        )
+
+        return analysis
 
     except Exception as e:
 
